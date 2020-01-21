@@ -148,6 +148,7 @@ typedef char bool;
 #include <stdlib.h>
 #include <math.h>
 
+#include <fcntl.h>
 #ifdef _WIN32
 #include <Windows.h>
 #endif // _WIN32
