@@ -53,10 +53,8 @@ UNUSED */
 #define FLOAT_STR "%f"
 #define DECIMAL_STR "%d"
 
-// Bool, (Not the C99 way!)
-typedef char bool;
-#define true 1
-#define false 0
+// Bool
+#include <stdbool.h>
 
 // This means the parameter is first a reference param and second a
 // Secondary output of the function.
