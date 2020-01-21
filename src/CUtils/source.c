@@ -11,15 +11,15 @@ int main()
 	int count = SplitString(string, delim, &out);
 	for (int i = 0; i < count; i++)
 	{
-		printf("%s%s", out[i], delim);
+		printf("%s%s", (const char*)out[i], (const char*)delim);
 	}
 	SplitFree(out, count);
 
 
 	printf("\n\nTESTING CONCAT:\n");
 	// Concat
-	char* con0 = ConcatString("is attached", " to The Second string using the third stirng!");
-	char* con1 = ConcatString("The first string, ", con0);
+	char* con0 = ConcatString((char*)"is attached", (char*)" to The Second string using the third stirng!");
+	char* con1 = ConcatString((char*)"The first string, ", con0);
 	printf("%s\n", con1);
 
 	ConcatFree(con0);
