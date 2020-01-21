@@ -1,8 +1,9 @@
 #include "serial.h"
 
+
+/* UNUSED BLOCK
 #ifdef __USE_INACTIVE_
 #ifdef _WIN32
-
 bool AutoPortInit(char* portname, OUT HANDLE* hCom)
 {
 	// INCOMPLETE FUNCTION
@@ -38,6 +39,7 @@ void CloseHandle(HANDLE hCom)
 
 #endif // _WIN32
 #endif // __USE_INACTIVE_
+UNUSED BLOCK */
 
 #ifdef linux
 int AutoPortInit(char* portname, OUT int* outFd)
