@@ -55,3 +55,4 @@ dkms.conf
 *.opendb
 *.log
 *.ipch
+src/.vs/CUtils/v15/.suo
