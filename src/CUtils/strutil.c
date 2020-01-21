@@ -5,7 +5,7 @@ int SplitString(char* string, char* delimiter, OUT LEAKY char*** outArrayReferen
 	int count = 0;
 	char** result;
 	
-	char* tmpstr = malloc(strlen(string) + 1);
+	char* tmpstr = (char*)malloc(strlen(string) + 1);
 	strcpy(tmpstr, string);
 
 	char* token = strtok(tmpstr, delimiter);
@@ -22,7 +22,7 @@ int SplitString(char* string, char* delimiter, OUT LEAKY char*** outArrayReferen
 	free(tmpstr);
 	tmpstr = NULL;
 
-	result = malloc(count * sizeof(char*));
+	result = (char*)malloc(count * sizeof(char*));
 
 	token = NULL;
 	token = strtok(string, delimiter);
@@ -31,7 +31,7 @@ int SplitString(char* string, char* delimiter, OUT LEAKY char*** outArrayReferen
 	int counter = 0;
 	while (token != NULL)
 	{
-		result[counter] = malloc(strlen(token) + 1);
+		result[counter] = (char*)malloc(strlen(token) + 1);
 		strcpy(result[counter], token);
 
 		token = strtok(NULL, delimiter);
@@ -64,7 +64,7 @@ LEAKY char* ConcatString(char* stringA, char* stringB)
 	int alen = (int)strlen(stringA);
 	int blen = (int)strlen(stringB);
 
-	char* result = calloc(alen + blen + 1, sizeof(char));
+	char* result = (char*)calloc(alen + blen + 1, sizeof(char));
 	strcpy(result, stringA);
 	strcat(result, stringB);
 	
@@ -100,7 +100,7 @@ LEAKY char* IntToString(int input, OUT int* len)
 {
 	*len = (int)((ceil(log10(input)) + 1) * sizeof(char));
 	
-	char* str = malloc((*len) * sizeof(char));
+	char* str = (char*)malloc((*len) * sizeof(char));
 	sprintf(str, DECIMAL_STR, input);
 
 	return str;
@@ -112,7 +112,7 @@ LEAKY char* DoubleToString(double input, OUT int* len)
 	sprintf(str, FLOAT_STR, input);
 	*len = (int)strlen(str);
 
-	char* sout = malloc(strlen(str) * sizeof(char));
+	char* sout = (char*)malloc(strlen(str) * sizeof(char));
 	strcpy(sout, str);
 	return sout;
 }
@@ -123,7 +123,7 @@ LEAKY char* FloatToString(float input, OUT int* len)
 	sprintf(str, FLOAT_STR, input);
 	*len = (int)strlen(str);
 
-	char* sout = malloc(strlen(str) * sizeof(char));
+	char* sout = (char*)malloc(strlen(str) * sizeof(char));
 	strcpy(sout, str);
 	return sout;
 }
