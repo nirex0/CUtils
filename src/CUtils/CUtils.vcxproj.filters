@@ -24,6 +24,9 @@
     <ClInclude Include="strutil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="serial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source.c">
@@ -33,6 +36,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="filing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="serial.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

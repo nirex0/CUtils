@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="serial.h" />
     <ClInclude Include="filing.h" />
     <ClInclude Include="precompiled.h" />
     <ClInclude Include="strutil.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="serial.c" />
     <ClCompile Include="filing.c" />
     <ClCompile Include="source.c" />
     <ClCompile Include="strutil.c" />
