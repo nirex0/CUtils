@@ -44,4 +44,9 @@ int SafeFRead(void** OUT buffer, int size, int number, char* path);
 // Returns 1 if exists and 0 if not
 bool DoesFileExist(char* path);
 
+// Creates Directory if it doesn't already exist
+// Returns 1 if directory is created
+// Returns 0 if directory already exists
+bool CreateDir(char* path);
+
 #endif // !_FILING_H_

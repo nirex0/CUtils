@@ -15,7 +15,7 @@ int WriteAllData(char* path, char* data, int dataLen)
 
 	// Cast from char* to void*
 	// Write all the bytes to the file
-	int res = fwrite((void*)data, 1, dataLen * sizeof(char), fp);
+	int res = (int)fwrite((void*)data, 1, dataLen * sizeof(char), fp);
 
 	// Clean up
 	fclose(fp);
@@ -46,7 +46,7 @@ int WriteAllLines(char* path, char** data, int* dataLens, int len)
 	{	
 		// Cast from char* to void*
 		// Write all the bytes to the file
-		res += fwrite((void*)data[i], 1, dataLens[i] * sizeof(char), fp);
+		res += (int)fwrite((void*)data[i], 1, dataLens[i] * sizeof(char), fp);
 	}
 
 	// Clean up
@@ -72,7 +72,7 @@ int AppendAllData(char* path, char* data, int dataLen)
 
 	// Cast from char* to void*
 	// Append all the bytes to the file
-	int res = fwrite((void*)data, 1, dataLen * sizeof(char), fp);
+	int res = (int)fwrite((void*)data, 1, dataLen * sizeof(char), fp);
 
 	// Clean up
 	fclose(fp);
@@ -103,7 +103,7 @@ int AppendAllLines(char* path, char** data, int* dataLens, int len)
 	{
 		// Cast from char* to void*
 		// Append all the bytes to the file
-		res += fwrite((void*)data[i], 1, dataLens[i] * sizeof(char), fp);
+		res += (int)fwrite((void*)data[i], 1, dataLens[i] * sizeof(char), fp);
 	}
 
 	// Clean up
@@ -152,7 +152,7 @@ int ReadAllData(NO_ALLOC LEAKY OUT char** buffer, char* path, OUT int* len)
 	}
 
 	// read all the file, putting it in the local buffer
-	int res = fread(localBuffer, sizeof(char), num_bytes, fp);
+	int res = (int)fread(localBuffer, sizeof(char), num_bytes, fp);
 
 	// Return the by-reference params
 	*len = num_bytes;
@@ -223,6 +223,32 @@ bool DoesFileExist(char* path)
 	{
 		return true;
 	}
+	return false;
+#endif // linux
+}
+
+bool CreateDir(char* path)
+{
+#ifdef _WIN32
+	unsigned long res = CreateDirectory((const char*)path, NULL);
+	if (res == (ERROR_ALREADY_EXISTS | ERROR_PATH_NOT_FOUND))
+	{
+		// Failed to create directory
+		return false;
+	}
+	// Directory created successfully
+	return true;
+#endif // _WIN32
+
+#ifdef linux
+	struct stat st = { 0 };
+	if (stat(path, &st) == -1)
+	{
+		// Directory created successfully
+		mkdir(dir, 0700);
+		return true;
+	}
+	// Failed to create directory
 	return false;
 #endif // linux
 }
