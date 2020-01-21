@@ -26,7 +26,7 @@ UNUSED BLOCK */
 // for later processing in int* outFd parameter
 // Returns 1 if function is finished successfully
 // Returns 0 if function fails
-bool AutoPortInit(char* portname, OUT int* outFd);
+bool InitPort(char* portname, OUT int* outFd);
 
 // Sets min count and timeout for fd
 // Returns 1 if function is finished successfully

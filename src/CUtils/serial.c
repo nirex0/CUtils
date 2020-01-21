@@ -42,7 +42,7 @@ void CloseHandle(HANDLE hCom)
 UNUSED BLOCK */
 
 #ifdef linux
-int AutoPortInit(char* portname, OUT int* outFd)
+int InitPort(char* portname, OUT int* outFd)
 {
 	int fd = open(portname, O_RDWR | O_NOCTTY | O_SYNC);
 	*outFd = fd;
