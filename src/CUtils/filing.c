@@ -220,7 +220,7 @@ bool DoesFileExist(char* path)
 #endif // _WIN32
 
 #ifdef linux
-	if (access(fname, F_OK) != -1)
+	if (access(path, F_OK) != -1)
 	{
 		return true;
 	}
