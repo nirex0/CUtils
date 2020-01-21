@@ -54,3 +54,4 @@ dkms.conf
 *.db
 *.opendb
 *.log
+*.ipch
