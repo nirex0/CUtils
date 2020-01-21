@@ -61,8 +61,8 @@ LEAKY char* ConcatString(char* stringA, char* stringB)
 		return NULL;
 	}
 
-	int alen = strlen(stringA);
-	int blen = strlen(stringB);
+	int alen = (int)strlen(stringA);
+	int blen = (int)strlen(stringB);
 
 	char* result = calloc(alen + blen + 1, sizeof(char));
 	strcpy(result, stringA);
@@ -110,7 +110,7 @@ LEAKY char* DoubleToString(double input, OUT int* len)
 {
 	char str[ENOUGH];
 	sprintf(str, FLOAT_STR, input);
-	*len = strlen(str);
+	*len = (int)strlen(str);
 
 	char* sout = malloc(strlen(str) * sizeof(char));
 	strcpy(sout, str);
@@ -121,7 +121,7 @@ LEAKY char* FloatToString(float input, OUT int* len)
 {
 	char str[ENOUGH];
 	sprintf(str, FLOAT_STR, input);
-	*len = strlen(str);
+	*len = (int)strlen(str);
 
 	char* sout = malloc(strlen(str) * sizeof(char));
 	strcpy(sout, str);
@@ -130,8 +130,8 @@ LEAKY char* FloatToString(float input, OUT int* len)
 
 bool AreEqual(char* stringA, char* stringB)
 {
-	int aLen = strlen(stringA);
-	int bLen = strlen(stringB);
+	int aLen = (int)strlen(stringA);
+	int bLen = (int)strlen(stringB);
 
 	if (aLen != bLen) 
 	{
