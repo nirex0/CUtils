@@ -57,7 +57,7 @@ bool InitPort(char* portname, OUT int* outFd)
 
 	// Ignore Modem Controls
 	tty.c_cflag |= (CLOCAL | CREAD); 
-	tty.c_cflag &= ~CSSIZE;
+	tty.c_cflag &= ~CSIZE;
 
 	// 8 Bit characters
 	tty.c_cflag |= CS8;
@@ -74,7 +74,7 @@ bool InitPort(char* portname, OUT int* outFd)
 	// Non-Canonical Mode
 	tty.c_iflag &= (~IGNBRK | BRKINT | ISTRIP | INLCR | IGNCR | ICRNL | IXON);
 	tty.c_lflag &= (~ECHO | ECHONL | ICANON | ISIG | IEXTEN);
-	tty.o_oflag &= ~OPOST;
+	tty.c_oflag &= ~OPOST;
 
 	// Fetch bytes as they become available
 	tty.c_cc[VMIN] = 1;
@@ -99,7 +99,7 @@ bool SetMincount(int fd, int mcount)
 	tty.c_cc[VMIN] = mcount ? 1 : 0;
 	tty.c_cc[VTIME] = 5;
 
-	if (tcgetattr(fd, TCSANOW, &tty) < 0)
+	if (tcsetattr(fd, TCSANOW, &tty) < 0)
 	{
 		return false;
 	}
