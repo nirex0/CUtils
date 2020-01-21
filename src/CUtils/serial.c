@@ -1,7 +1,5 @@
 #include "serial.h"
 
-
-/* UNUSED BLOCK
 #ifdef __USE_INACTIVE_
 #ifdef _WIN32
 bool AutoPortInit(char* portname, OUT HANDLE* hCom)
@@ -39,10 +37,9 @@ void CloseHandle(HANDLE hCom)
 
 #endif // _WIN32
 #endif // __USE_INACTIVE_
-UNUSED BLOCK */
 
 #ifdef linux
-int InitPort(char* portname, OUT int* outFd)
+bool InitPort(char* portname, OUT int* outFd)
 {
 	int fd = open(portname, O_RDWR | O_NOCTTY | O_SYNC);
 	*outFd = fd;

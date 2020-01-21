@@ -3,7 +3,6 @@
 
 #include "precompiled.h"
 
-/* UNUSED BLOCK
 #ifdef __USE_INACTIVE_
 #ifdef _WIN32
 
@@ -18,7 +17,6 @@ void CloseHandle(HANDLE hCom);
 
 #endif // _WIN32
 #endif // __USE_INACTIVE_
-UNUSED BLOCK */
 
 #ifdef linux
 
