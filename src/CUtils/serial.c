@@ -87,7 +87,6 @@ int AutoPortInit(char* portname, OUT int* outFd)
 		return false;
 	}
 	return true;
-
 }
 
 bool SetMincount(int fd, int mcount)
@@ -107,7 +106,6 @@ bool SetMincount(int fd, int mcount)
 	}
 
 	return true;
-
 }
 
 #endif // linux
