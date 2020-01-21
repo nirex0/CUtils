@@ -22,7 +22,7 @@ int SplitString(char* string, char* delimiter, OUT LEAKY char*** outArrayReferen
 	free(tmpstr);
 	tmpstr = NULL;
 
-	result = (char*)malloc(count * sizeof(char*));
+	result = (char**)malloc(count * sizeof(char*));
 
 	token = NULL;
 	token = strtok(string, delimiter);
