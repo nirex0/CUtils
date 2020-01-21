@@ -5,6 +5,7 @@
 	   #DEFINE SEGMENT
 \***************************/
 
+/* UNUSED
 // Serial Port related enum types
 // TODO: Implement into the serial function!
 // Parity enum
@@ -32,6 +33,8 @@ typedef enum { BINVALID, B9600, B19200, B38400, B57600,
 // Message enum
 typedef enum { MINVALID, MNone, MCR, MLF, MCR_AND_LF } Message;
 
+UNUSED */
+
 #ifdef _WIN32
 
 // MS BS!
@@ -51,7 +54,9 @@ typedef enum { MINVALID, MNone, MCR, MLF, MCR_AND_LF } Message;
 #define DECIMAL_STR "%d"
 
 // Bool, (Not the C99 way!)
-typedef enum { false, true } bool;
+typedef char bool;
+#define true 1
+#define false 0
 
 // This means the parameter is first a reference param and second a
 // Secondary output of the function.
