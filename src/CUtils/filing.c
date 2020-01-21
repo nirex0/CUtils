@@ -246,7 +246,7 @@ bool CreateDir(char* path)
 	if (stat(path, &st) == -1)
 	{
 		// Directory created successfully
-		mkdir(dir, 0700);
+		mkdir(path, 0700);
 		return true;
 	}
 	// Failed to create directory
