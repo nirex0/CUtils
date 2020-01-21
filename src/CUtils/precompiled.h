@@ -5,6 +5,33 @@
 	   #DEFINE SEGMENT
 \***************************/
 
+// Serial Port related enum types
+// TODO: Implement into the serial function!
+// Parity enum
+typedef enum { PINVALID, PNone, PEven, POdd } Parity;
+
+// Wordsize enum
+typedef enum { WSINVALID, WSEight, WSSeven, WSSix } WordSize;
+
+// StopBits enum
+typedef enum { SBINVALID, SB1, SB15, SB2 } StopBits;
+
+// Flow enum
+typedef enum { FINVALID, FNone, FRTS_CTS, FXON_XOFF } Flow;
+
+// Baudrate enum (Most common Baudrates)
+typedef enum { BINVALID, B9600, B19200, B38400, B57600, 
+			   B115200, B150, B300, B600, B1200, B2400, 
+			   B4800, B230400, B460800, B921600, B256, B512,
+			   B1024, B2048, B4096, B8192, B16384, B32768,
+			   B65536, B1000, B2000, B3000, B4000, B5000,
+			   B6000, B7000, B8000, B9000, B10000, B20000,
+			   B30000, B40000, B50000, B60000, B70000, B80000,
+			   B90000, B100000 } Baudrate;
+
+// Message enum
+typedef enum { MINVALID, MNone, MCR, MLF, MCR_AND_LF } Message;
+
 #ifdef _WIN32
 
 // MS BS!
@@ -124,6 +151,7 @@ typedef enum { false, true } bool;
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <termios.h>
 #endif // linux
 
 /***************************\
