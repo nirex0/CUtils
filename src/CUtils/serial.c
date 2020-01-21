@@ -9,7 +9,7 @@ bool AutoPortInit(char* portname, OUT HANDLE* hCom)
 
 	HANDLE hand;
 
-	// Create a handle to port
+	// Create a handle to port using the CreateFile macro
 	hand = CreateFile(portname,					// port name
 		GENERIC_READ | GENERIC_WRITE,			// Read and Write
 		0,										// No Sharing

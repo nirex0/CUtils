@@ -46,6 +46,7 @@ int WriteAllLines(char* path, char** data, int* dataLens, int len)
 	{	
 		// Cast from char* to void*
 		// Write all the bytes to the file
+		// Add the written bytes count to res variable
 		res += (int)fwrite((void*)data[i], 1, dataLens[i] * sizeof(char), fp);
 	}
 
