@@ -43,7 +43,7 @@ int WriteAllLines(char* path, char** data, int* dataLens, int len)
 
 	// Iterate through data[][] from 0 to len
 	for (int i = 0; i < len; i++)
-	{	
+	{
 		// Cast from char* to void*
 		// Write all the bytes to the file
 		// Add the written bytes count to res variable
@@ -134,7 +134,7 @@ int ReadAllData(NO_ALLOC LEAKY OUT char** buffer, char* path, OUT int* len)
 	// Calculate the number of bytes in the file
 	fseek(fp, 0L, SEEK_END);
 	num_bytes = ftell(fp);
-	
+
 	// Go back to the beginning of file
 	fseek(fp, 0L, SEEK_SET);
 
@@ -193,7 +193,7 @@ int SafeFRead(void** OUT buffer, int size, int number, char* path)
 
 	// Put all the read bytes in res for later error checking
 	int res = (int)fread(*buffer, size, number, fp);
-	
+
 	if (res < number)
 	{
 		// Clean up
