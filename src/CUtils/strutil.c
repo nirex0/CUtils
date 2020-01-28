@@ -4,7 +4,7 @@ int SplitString(char* string, char* delimiter, OUT LEAKY char*** outArrayReferen
 {
 	int count = 0;
 	char** result;
-	
+
 	char* tmpstr = (char*)malloc(strlen(string) + 1);
 	strcpy(tmpstr, string);
 
@@ -36,7 +36,7 @@ int SplitString(char* string, char* delimiter, OUT LEAKY char*** outArrayReferen
 
 		token = strtok(NULL, delimiter);
 		++counter;
-	}	
+	}
 
 	*outArrayReference = result;
 	return counter;
@@ -67,7 +67,7 @@ LEAKY char* ConcatString(char* stringA, char* stringB)
 	char* result = (char*)calloc(alen + blen + 1, sizeof(char));
 	strcpy(result, stringA);
 	strcat(result, stringB);
-	
+
 	return result;
 }
 
@@ -99,7 +99,7 @@ int StringToInt(char* string)
 LEAKY char* IntToString(int input, OUT int* len)
 {
 	*len = (int)((ceil(log10(input)) + 1) * sizeof(char));
-	
+
 	char* str = (char*)malloc((*len) * sizeof(char));
 	sprintf(str, DECIMAL_STR, input);
 
@@ -133,11 +133,11 @@ bool AreEqual(char* stringA, char* stringB)
 	int aLen = (int)strlen(stringA);
 	int bLen = (int)strlen(stringB);
 
-	if (aLen != bLen) 
+	if (aLen != bLen)
 	{
 		return false;
 	}
-	
+
 	for (int i = 0; i < aLen; i++)
 	{
 		if (stringA[i] != stringB[i])
