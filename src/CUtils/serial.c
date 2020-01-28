@@ -45,7 +45,7 @@ bool InitPort(char* portname, OUT int* outFd)
 	*outFd = fd;
 
 	tcdrain(fd);
-	
+
 	struct termios tty;
 	if (tcgetattr(fd, &tty) < 0)
 	{
@@ -56,7 +56,7 @@ bool InitPort(char* portname, OUT int* outFd)
 	cfsetispeed(&tty, (speed_t)B115200);
 
 	// Ignore Modem Controls
-	tty.c_cflag |= (CLOCAL | CREAD); 
+	tty.c_cflag |= (CLOCAL | CREAD);
 	tty.c_cflag &= ~CSIZE;
 
 	// 8 Bit characters
@@ -70,7 +70,7 @@ bool InitPort(char* portname, OUT int* outFd)
 
 	// No Flow Control
 	tty.c_cflag &= ~CRTSCTS;
-	
+
 	// Non-Canonical Mode
 	tty.c_iflag &= (~IGNBRK | BRKINT | ISTRIP | INLCR | IGNCR | ICRNL | IXON);
 	tty.c_lflag &= (~ECHO | ECHONL | ICANON | ISIG | IEXTEN);
